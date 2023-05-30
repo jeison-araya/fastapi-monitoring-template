@@ -8,6 +8,7 @@ fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 psutil = "*"
 prometheus-client = "*"
+requests = "*"
 
 [dev-packages]
 
