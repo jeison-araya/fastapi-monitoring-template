@@ -1,3 +1,5 @@
+import random
+import time
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.monitor import monitor
@@ -18,8 +20,22 @@ async def startup_event():
 
 @app.middleware("http")
 async def monitor_requests(request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+
+    monitor.track_request_time(process_time)
     monitor.track_system_usage()
-    return await call_next(request)
+    if request.url.path:
+        monitor.count_endpoint_calls(request.url.path)
+
+    return response
+
+
+@app.exception_handler(Exception)
+async def error_handler(request, exc):
+    monitor.count_error()
+    return {"Error": f"{exc}"}
 
 
 @app.get("/")
@@ -31,6 +47,9 @@ def read_root():
 def raise_error():
     raise Exception("Error")
 
-@app.get("/metrics")
-def get_metrics():
-    return monitor.get_metrics()
+
+@app.get('/delay')
+def random_delay():
+    process_time = random.randint(2, 5)
+    time.sleep(process_time)
+    return {"Response time": f'{process_time} seconds'}
