@@ -21,7 +21,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -54,7 +54,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 5,
+        "w": 4,
         "x": 0,
         "y": 0
       },
@@ -147,8 +147,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 11,
-        "x": 5,
+        "w": 9,
+        "x": 4,
         "y": 0
       },
       "id": 9,
@@ -181,51 +181,29 @@
         "defaults": {
           "color": {
             "fixedColor": "purple",
-            "mode": "fixed"
+            "mode": "continuous-RdYlGr"
           },
           "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 20,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "stepAfter",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "fillOpacity": 70,
+            "lineWidth": 1
           },
           "decimals": 0,
-          "displayName": "API status",
+          "displayName": "Status",
           "mappings": [],
-          "max": 1,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 1
               }
             ]
           }
@@ -233,18 +211,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 8,
-        "x": 16,
+        "h": 6,
+        "w": 6,
+        "x": 13,
         "y": 0
       },
       "id": 15,
       "options": {
+        "colWidth": 0.9,
         "legend": {
-          "calcs": [],
           "displayMode": "list",
           "placement": "bottom"
         },
+        "rowHeight": 0.9,
+        "showValue": "auto",
         "tooltip": {
           "mode": "single"
         }
@@ -254,13 +234,13 @@
         {
           "exemplar": true,
           "expr": "up",
-          "interval": "",
+          "interval": "0",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "Status",
-      "type": "timeseries"
+      "title": "API Status",
+      "type": "status-history"
     },
     {
       "datasource": null,
@@ -291,7 +271,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 5,
+        "w": 4,
         "x": 0,
         "y": 6
       },
@@ -383,8 +363,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 11,
-        "x": 5,
+        "w": 9,
+        "x": 4,
         "y": 6
       },
       "id": 6,
@@ -550,7 +530,7 @@
       },
       "gridPos": {
         "h": 12,
-        "w": 15,
+        "w": 10,
         "x": 9,
         "y": 12
       },
@@ -587,12 +567,12 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
-    "to": "now"
+    "from": "2023-06-05T18:00:01.429Z",
+    "to": "2023-06-05T18:10:01.429Z"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "FastAPI - Dashboard",
-  "uid": "pWLJpVl4z",
-  "version": 4
+  "title": "FastAPI - Dashboard copy",
+  "uid": "pWLJpVl41",
+  "version": 2
 }
