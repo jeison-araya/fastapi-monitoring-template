@@ -1,0 +1,20 @@
+groups:
+  - name: my-alert-rules
+    rules:
+      - alert: ServiceDownAlert
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Service is down: {{ $labels.job }}"
+          description: "The {{ $labels.job }} service is down."
+
+      - alert: ServiceUpAlert
+        expr: up == 1
+        for: 1m
+        labels:
+          severity: info
+        annotations:
+          summary: "Service is up: {{ $labels.job }}"
+          description: "The {{ $labels.job }} service is up again."
