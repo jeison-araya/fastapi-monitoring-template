@@ -1,6 +1,8 @@
 import time 
 import requests
 import random
+
+
 url = "http://localhost:8000/"
 endpoint_1 = "delay/"
 endpoint_2 = "error/"

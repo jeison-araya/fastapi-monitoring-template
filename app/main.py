@@ -48,7 +48,7 @@ def raise_error():
     raise Exception("Error")
 
 
-@app.get('/delay')
+@app.get('/delay/')
 def random_delay():
     process_time = random.randint(2, 5)
     time.sleep(process_time)
